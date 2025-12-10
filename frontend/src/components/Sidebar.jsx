@@ -31,7 +31,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`w-64 min-h-screen ${theme.cardBg} backdrop-blur-xl border-r ${theme.cardBorder} flex flex-col p-4 fixed left-0 top-0 z-40`}
+      className={`w-64 min-h-screen ${theme.sidebarBg} backdrop-blur-xl border-r ${theme.cardBorder} flex flex-col p-4 fixed left-0 top-0 z-40 theme-transition`}
     >
       <div className="mb-8 px-2">
         <h1 className={`text-3xl font-bold bg-gradient-to-r ${theme.accent} bg-clip-text text-transparent`}>
