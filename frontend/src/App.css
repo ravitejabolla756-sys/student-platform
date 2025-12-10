@@ -30,7 +30,7 @@ body {
 
 /* Smooth transitions */
 * {
-    transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+    transition-property: color, background-color, border-color, opacity;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -39,7 +39,21 @@ a {
     transition-duration: 300ms;
 }
 
-/* Glow animation for cards */
+/* Floating animation for cards */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.floating-card {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Glow pulse animation */
 @keyframes glow-pulse {
     0%, 100% {
         box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
@@ -67,4 +81,116 @@ a {
 
 .animate-slide-up {
     animation: slide-up 0.6s ease-out forwards;
+}
+
+/* Ripple effect */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-effect::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: scale(0);
+    pointer-events: none;
+}
+
+.ripple-effect:active::after {
+    animation: ripple 0.6s ease-out;
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* Gradient animation */
+@keyframes gradient-shift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+}
+
+/* Sidebar active glow */
+.sidebar-active-glow {
+    position: relative;
+}
+
+.sidebar-active-glow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #06b6d4, #3b82f6);
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+}
+
+/* Button glow on hover */
+.button-glow:hover {
+    box-shadow: 0 0 30px currentColor;
+    transform: scale(1.05);
+}
+
+/* Theme transition */
+.theme-transition {
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Particle trail effect */
+@keyframes particle-fade {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* Card entrance stagger */
+.stagger-entrance {
+    animation: slide-up 0.6s ease-out forwards;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
