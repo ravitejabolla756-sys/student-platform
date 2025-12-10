@@ -17,7 +17,7 @@ const Topbar = () => {
 
   return (
     <div
-      className={`h-16 ${theme.cardBg} backdrop-blur-xl border-b ${theme.cardBorder} fixed top-0 left-64 right-0 z-30 flex items-center px-6 gap-4`}
+      className={`h-16 ${theme.topbarBg} backdrop-blur-xl border-b ${theme.cardBorder} fixed top-0 left-64 right-0 z-30 flex items-center px-6 gap-4 theme-transition`}
     >
       <div className="flex-1 max-w-2xl">
         <div
