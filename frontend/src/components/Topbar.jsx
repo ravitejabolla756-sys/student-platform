@@ -40,7 +40,7 @@ const Topbar = () => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button
-              className={`p-3 rounded-xl ${theme.cardBg} border ${theme.cardBorder} hover:shadow-lg hover:${theme.glowHover} transition-all duration-300 ${theme.text}`}
+              className={`p-3 rounded-xl ${theme.cardBg} border ${theme.cardBorder} hover:shadow-lg hover:${theme.glowHover} transition-all duration-300 ${theme.text} button-glow`}
             >
               <Palette className="w-5 h-5" />
             </button>
@@ -48,7 +48,8 @@ const Topbar = () => {
           <DropdownMenuContent className={`${theme.cardBg} border ${theme.cardBorder} backdrop-blur-xl`}>
             <DropdownMenuLabel className={theme.text}>Choose Theme</DropdownMenuLabel>
             <DropdownMenuSeparator className={theme.cardBorder} />
-            {Object.keys(themes).map((key) => (
+            <DropdownMenuLabel className={`${theme.textMuted} text-xs`}>Day/Night</DropdownMenuLabel>
+            {['day', 'night'].map((key) => (
               <DropdownMenuItem
                 key={key}
                 onClick={() => changeTheme(key)}
@@ -56,7 +57,25 @@ const Topbar = () => {
                   currentTheme === key ? 'bg-white/10' : ''
                 }`}
               >
-                <Moon className="w-4 h-4 mr-2" />
+                {key === 'day' ? (
+                  <Sun className="w-4 h-4 mr-2" />
+                ) : (
+                  <Moon className="w-4 h-4 mr-2" />
+                )}
+                {themes[key].name}
+              </DropdownMenuItem>
+            ))}
+            <DropdownMenuSeparator className={theme.cardBorder} />
+            <DropdownMenuLabel className={`${theme.textMuted} text-xs`}>Color Themes</DropdownMenuLabel>
+            {['yellow', 'red', 'green', 'purple'].map((key) => (
+              <DropdownMenuItem
+                key={key}
+                onClick={() => changeTheme(key)}
+                className={`${theme.text} cursor-pointer hover:bg-white/5 ${
+                  currentTheme === key ? 'bg-white/10' : ''
+                }`}
+              >
+                <div className={`w-4 h-4 mr-2 rounded bg-gradient-to-r ${themes[key].accent}`}></div>
                 {themes[key].name}
               </DropdownMenuItem>
             ))}
