@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { Search, Bell, User, Moon, Palette } from 'lucide-react';
+import { Search, Bell, User, Moon, Sun, Palette } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
