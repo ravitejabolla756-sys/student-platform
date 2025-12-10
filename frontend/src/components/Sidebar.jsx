@@ -50,8 +50,8 @@ const Sidebar = () => {
               to={item.path}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group ${
                 isActive
-                  ? `bg-gradient-to-r ${theme.accent} ${theme.text} shadow-lg ${theme.glowHover}`
-                  : `${theme.textMuted} hover:${theme.text} hover:bg-white/5`
+                  ? `bg-gradient-to-r ${theme.accent} ${theme.text} shadow-lg ${theme.glowHover} sidebar-active-glow`
+                  : `${theme.textMuted} hover:${theme.text} hover:bg-white/5 hover-lift`
               }`}
             >
               <Icon
