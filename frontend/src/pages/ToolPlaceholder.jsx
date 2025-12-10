@@ -1,3 +1,5 @@
+import PdfMerge from "../tools/PdfMerge"; 
+
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
@@ -25,6 +27,23 @@ const ToolPlaceholder = () => {
     .join(' ');
 
   const isVideoExplainer = toolId === 'video-explainer';
+
+  // ✅ Render PdfMerge instead of placeholder
+if (toolId === "pdf-merge") {
+  return (
+    <div className="max-w-4xl mx-auto py-8">
+      <button
+        onClick={() => navigate(-1)}
+        className={`flex items-center gap-2 ${theme.textMuted} hover:${theme.text} mb-6`}
+      >
+        ← Back
+      </button>
+
+      <PdfMerge />
+    </div>
+  );
+}
+
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
